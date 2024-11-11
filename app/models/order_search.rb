@@ -1,6 +1,7 @@
 class OrderSearch
   include ActiveModel::Model
   include ActiveModel::Attributes
+  include Turbo::Broadcastable
 
   attribute :order_id, :big_integer
   attribute :result
