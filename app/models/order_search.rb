@@ -14,10 +14,6 @@ class OrderSearch
   def process
     return unless processing?
 
-    # Simulate network request
-    sleep 1
-
-    # Simulate building result from response
-    self.result = Order.new(id: order_id, product: "Some Widget", quantity: 1)
+    GetOrderJob.perform_later(self)
   end
 end

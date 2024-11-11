@@ -1,5 +1,8 @@
-<% if order_search.processing? %>
-  <p>Searching...</p>
-<% elsif order_search.processed? %>
-  <%= render order_search.result %>
-<% end %>
+<div id="<%= dom_id(order_search) %>">
+  <% if order_search.processing? %>
+    <%= turbo_stream_from order_search %>
+    <p>Searching...</p>
+  <% elsif order_search.processed? %>
+    <%= render order_search.result %>
+  <% end %>
+</div>

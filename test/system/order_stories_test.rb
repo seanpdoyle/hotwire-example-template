@@ -11,6 +11,10 @@ class OrderStoriesTest < ApplicationSystemTestCase
     fill_in "Order ID", with: 1
     click_button "Find order"
 
+    assert_text "Searching..."
+
+    perform_enqueued_jobs only: GetOrderJob
+
     assert_no_text "Searching..."
     assert_text "Product: Some Widget"
     assert_text "Quantity: 1"
