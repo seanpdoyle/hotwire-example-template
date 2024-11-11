@@ -1,0 +1,8 @@
+<%= form_with model: @order_search, scope: "", method: :get do |form| %>
+  <%= form.label :order_id, "Order ID" %>
+  <%= form.number_field :order_id, required: true %>
+
+  <%= form.submit "Find order" %>
+<% end %>
+
+<%= render @order_search %>

@@ -1,0 +1,5 @@
+<% if order_search.processing? %>
+  <p>Searching...</p>
+<% elsif order_search.processed? %>
+  <%= render order_search.result %>
+<% end %>
