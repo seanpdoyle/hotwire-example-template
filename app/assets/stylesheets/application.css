@@ -13,3 +13,67 @@
  *= require_tree .
  *= require_self
  */
+
+@keyframes fade-out {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 0%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+::view-transition-old(backdrop) {
+  animation: 0.4s ease-in both fade-out;
+}
+
+::view-transition-new(backdrop) {
+  animation: 0.4s ease-in both fade-in;
+}
+
+::view-transition-old(panel) {
+  animation: 0.4s ease-in both slide-out;
+}
+
+::view-transition-new(panel) {
+  animation: 0.4s ease-in both slide-in;
+}
+
+#panel {
+  view-transition-name: panel;
+}
+
+#backdrop {
+  view-transition-name: backdrop;
+}

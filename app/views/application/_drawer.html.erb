@@ -1,13 +1,15 @@
 <%# locals: (title: )%>
 
 <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+  <div id="backdrop"
+       class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
        aria-hidden="true"></div>
 
   <div class="fixed inset-0 overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
       <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-        <div class="pointer-events-auto relative w-screen max-w-md">
+        <div id="panel"
+             class="pointer-events-auto relative w-screen max-w-md">
           <div class="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
             <%= link_to :back, class: "relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white" do %>
               <span class="absolute -inset-2.5"></span>
