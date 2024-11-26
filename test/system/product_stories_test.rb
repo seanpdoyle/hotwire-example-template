@@ -11,6 +11,8 @@ class ProductStoriesTest < ApplicationSystemTestCase
     assert_no_text "Expected Product"
 
     click_link "New product"
+    click_link "Close panel"
+    click_link "New product"
 
     fill_in "Name", with: "Expected Product"
     fill_in "Description", with: "Product description"
@@ -28,6 +30,8 @@ class ProductStoriesTest < ApplicationSystemTestCase
     assert_text "Old"
 
     click_link "Edit this product"
+    click_link "Close panel"
+    click_link "Edit this product"
 
     fill_in "Name", with: "New"
     click_button "Update Product"
@@ -36,7 +40,7 @@ class ProductStoriesTest < ApplicationSystemTestCase
     assert_no_field "Name"
   end
 
-  test "surfacing errors" do
+  test "surfacing errors on create" do
     visit root_path
 
     click_link "New product"
@@ -45,5 +49,23 @@ class ProductStoriesTest < ApplicationSystemTestCase
 
     assert_text "error"
     assert_field "Name", with: ""
+
+    click_link "Close panel"
+  end
+
+  test "surfacing errors on edit" do
+    Product.create(name: "Old")
+
+    visit root_path
+
+    click_link "Edit this product"
+
+    fill_in "Name", with: ""
+    click_button "Update Product"
+
+    assert_text "error"
+    assert_field "Name", with: ""
+
+    click_link "Close panel"
   end
 end
