@@ -1,0 +1,18 @@
+<div id="<%= dom_id product %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p>
+    <%= link_to "Edit this product",
+      edit_product_path(product),
+      class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </p>
+
+</div>
