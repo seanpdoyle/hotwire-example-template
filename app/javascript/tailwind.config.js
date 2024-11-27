@@ -1,5 +1,5 @@
 tailwind.config = {
   corePlugins: {
-    preflight: false,
-  }
-}
+    preflight: true,
+  },
+};
