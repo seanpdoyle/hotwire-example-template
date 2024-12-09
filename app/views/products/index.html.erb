@@ -20,4 +20,4 @@
   </div>
 </div>
 
-<%= turbo_frame_tag :drawer %>
+<%= turbo_frame_tag :drawer, data: {controller: "drawer", action: "turbo:before-frame-render->drawer#animate"} %>

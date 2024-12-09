@@ -4,13 +4,27 @@
   <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
     <div id="backdrop"
          class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+         data-drawer-target="backdrop"
+         data-transition-enter="ease-in-out duration-500"
+         data-transition-enter-start="opacity-0"
+         data-transition-enter-end="opacity-100"
+         data-transition-leave="ease-in-out duration-500"
+         data-transition-leave-start="opacity-100"
+         data-transition-leave-end="opacity-0"
          aria-hidden="true"></div>
 
     <div class="fixed inset-0 overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
         <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
           <div id="panel"
-               class="pointer-events-auto relative w-screen max-w-md">
+               class="pointer-events-auto relative w-screen max-w-md"
+               data-transition-enter="transform transition ease-in-out duration-500 sm:duration-700"
+               data-transition-enter-start="translate-x-full"
+               data-transition-enter-end="translate-x-0"
+               data-transition-leave="transform transition ease-in-out duration-500 sm:duration-700"
+               data-transition-leave-start="translate-x-0"
+               data-transition-leave-end="translate-x-full"
+               data-drawer-target="panel">
             <div class="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
               <%= link_to :back, class: "relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white" do %>
                 <span class="absolute -inset-2.5"></span>
