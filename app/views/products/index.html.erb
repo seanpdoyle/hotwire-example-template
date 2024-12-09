@@ -9,7 +9,8 @@
     <h1 class="font-bold text-4xl">Products</h1>
     <%= link_to "New product",
       new_product_path(variant: :drawer),
-      class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium",
+      data: { turbo_frame: :drawer } %>
   </div>
 
   <div id="products" class="min-w-full">
@@ -18,3 +19,5 @@
     <% end %>
   </div>
 </div>
+
+<%= turbo_frame_tag :drawer %>

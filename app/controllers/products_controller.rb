@@ -22,7 +22,10 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to products_path, notice: "Product was successfully created."
+      respond_to do |format|
+        format.turbo_stream if turbo_frame_request?
+        format.html { redirect_to products_path, notice: "Product was successfully created." }
+      end
     else
       render :new, variants: @variant, status: :unprocessable_entity
     end
@@ -30,7 +33,10 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to products_path, notice: "Product was successfully updated."
+      respond_to do |format|
+        format.turbo_stream if turbo_frame_request?
+        format.html { redirect_to products_path, notice: "Product was successfully updated." }
+      end
     else
       render :edit, variants: @variant, status: :unprocessable_entity
     end
