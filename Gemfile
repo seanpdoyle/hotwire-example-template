@@ -74,3 +74,5 @@ group :test do
   gem "capybara_accessible_selectors", github: "citizensadvice/capybara_accessible_selectors"
   gem "webdrivers"
 end
+
+gem "tailwindcss-rails", "~> 3.1"
